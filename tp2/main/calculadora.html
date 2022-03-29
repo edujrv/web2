@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            Calculadora
+        </title>
+        <link rel="stylesheet" href="../styles/background.css">
+        <link rel="stylesheet" href="../styles/buttons.css">
+        <link rel="stylesheet" href="../styles/style.css">
+        <script src="calculadora.js"></script>
+    </head>
+    <body>
+        <h1 class="title">
+            CALCULADORA
+        </h1>
+        <form name="Calculadora"> 
+            <div >
+                <table >
+                    <tr>
+                        <td>
+                            <input type="button" class="tecla" value="C" id="c" onclick="reset()">
+                        </td>
+                        
+                        <td class="resultado" colspan="3">
+                            <input class="screen" id="screen" type="text" name="screen" value="" maxlength="30">
+                        </td>  
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" class="tecla" value="7" id="7" onclick="refreshScreen(7)">
+                        </td>
+                        <td>
+                            <input type="button" class="tecla" value="8" id="8" onclick="refreshScreen(8)">
+                        </td>
+                        <td>
+                            <input type="button" class="tecla" value="9" id="9" onclick="refreshScreen(9)">
+                        </td>
+                
+                        <td>
+                            <input type="button" class="tecla" value="+" id="mas" onclick="operation('+')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" class="tecla" value="4" id="4" onclick="refreshScreen(4)">
+                        </td>
+                        <td>
+                            <input type="button" class="tecla" value="5" id="5" onclick="refreshScreen(5)">
+                        </td>
+                        <td>
+                            <input type="button" class="tecla" value="6" id="6" onclick="refreshScreen(6)">
+                        </td>
+                
+                        <td>
+                            <input type="button" class="tecla" value="-" id="menos" onclick="operation('-')">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <input type="button" class="tecla" value="1" id="1" onclick="refreshScreen(1)">
+                        </td>
+                        <td>
+                            <input type="button" class="tecla" value="2" id="2" onclick="refreshScreen(2)">
+                        </td>
+                        <td>
+                            <input type="button" class="tecla" value="3" id="3" onclick="refreshScreen(3)">
+                        </td>
+                
+                        <td>
+                            <input type="button" class="tecla" value="/" id="div" onclick="operation('/')">
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td>
+                            <input type="button" class="tecla" value="0" id="0" onclick="refreshScreen(0)">
+                        </td>
+                        <td>
+                            <input type="button" class="tecla" value="." id="." onclick="refreshScreen('.')">
+                        </td>
+                        <td>
+                            <input type="button" class="tecla" value="=" id="=" onclick="calculate()">
+                        </td>
+                
+                        <td>
+                            <input type="button" class="tecla" value="x" id="x" onclick="operation('x')">
+                        </td>
+                    </tr>
+                    
+                </table>
+                
+            </div>
+        </form>
+
+    </body>
+</html>
