@@ -1,0 +1,57 @@
+.title{
+    font-size: 30px;
+    text-align: left;
+    margin-top: 15px;
+}
+
+.container-inicio{
+    background-color: rgb(136, 218, 161);
+    margin-top: 10px;
+}
+.container-edit{
+    background-color: rgb(241, 134, 72);
+    margin-top: 10px;
+}
+
+.borde{
+    background-color: rgb(255, 255, 255);
+    margin-top: 10px;
+    
+}
+.formulario{
+    margin-left: 15px;
+}
+
+.inputText{
+    width: 80%;
+    padding-bottom: 1px;
+}
+
+.tableTitle{
+    font-size: 20px;
+}
+
+.title-row{
+    border-style: solid;
+    background-color: rgb(62, 220, 241);
+    border-color: rgb(48, 171, 187);
+}
+
+.row1{
+    background-color: rgb(185, 239, 247);
+    border-style: solid;
+    border-width: 1px;
+    border-color: aliceblue;
+}
+.row2{
+    background-color: rgb(127, 223, 238);
+    border-style: solid;
+    border-width: 1px;
+    border-color: aliceblue;
+}
+
+.opcionBtn{
+    background-color: green;
+    border: none;
+    border-radius: 20px;
+}
