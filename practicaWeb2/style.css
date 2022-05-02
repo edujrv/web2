@@ -1,0 +1,41 @@
+.pad{
+    padding-top: 20px;
+    
+}
+
+.container-login{
+    background-color: rgb(245, 231, 177);
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(230, 210, 132);;
+    margin-top: 10px;
+}
+
+.container-signup{
+    background-color: rgb(177, 245, 234);
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(122, 219, 203);
+    margin-top: 10px;
+}
+
+.tableH1{
+    font-size: 20px;
+}
+
+.container-table{
+    background-color: rgb(236, 102, 214);
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgb(182, 41, 158);
+    margin-top: 10px;
+}
+
+.row1{
+    background-color: rgb(236, 217, 233);
+    margin-top: 10px;
+}
+.row2{
+    background-color: rgb(245, 169, 232);
+    margin-top: 10px;
+}
