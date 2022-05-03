@@ -26,86 +26,6 @@ const table_title = `<div class="row title-row" id="fila">
         Opciones
     </h1>
 </div>
-
-</div>`;
-
-const ingreso = `<div class="row">
-<div class="col-md-3"> </div>
-<div class="col-md-6 container-inicio">
-    <div class="row">
-        <h1 class="title">Ingreso de Productos</h1>
-    </div>
-    <form class="formulario">
-        <div class="row">
-            <div class="col-md-2">
-                <label for="codigo">Codigo:</label>
-            </div>
-            <div class="col-md-6 inputText">
-                <input type="text" name="code" id="code" placeholder="Ingrese el Codigo"
-                    class="form-control" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                <label for="desc">Descripcion:</label>
-            </div>
-            <div class="col-md-6 inputText">
-                <input type="text" name="desc" id="desc" placeholder="Ingrese la Descripcion"
-                    class="form-control" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                <label for="marca">Marca:</label>
-            </div>
-            <div class="col-md-6 inputText">
-                <input type="text" name="marca" id="marca" placeholder="Ingrese la Marca"
-                    class="form-control" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                <label for="precio">Precio:</label>
-            </div>
-            <div class="col-md-6 inputText">
-                <input type="number" name="precio" id="precio" placeholder="Ingrese el Precio"
-                    class="form-control" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                <label for="cant">Cantidad:</label>
-            </div>
-            <div class="col-md-6 inputText">
-                <input type="number" name="cant" id="cant" placeholder="Ingrese la Cantidad"
-                    class="form-control" />
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2">
-                <label for="desc">IVA:</label>
-            </div>
-            <div class="col-md-6 inputText">
-                <select name="iva" id="iva" class="form-control">
-                    <option value="10">10%</option>
-                    <option value="21">21%</option>
-                </select>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-6">
-                <input type="button" value="Registrar Producto" class="btn btn-success"
-                    onclick="guardarProducto()">
-            </div>
-        </div>
-
-    </form>
-
-</div>
-
-
-<div class="col-md-2"></div>
 </div>`;
 
 function guardarProducto(){
@@ -171,9 +91,12 @@ function mostrarTabla(){
 
 
 function crearFila(codigo, desc, marca, precio, cant, iva, subtotal, id){
-    if(iva == 10){
+    let style = "row1";
+    if(iva == 21){
+        style = "row2";
+    }
         return `
-        <div class="row row1" id="fila">
+        <div class="row `+ style +`" id="fila">
 
                         <div class="col-md-1">
                             <h1 class="tableTitle">`+ codigo +`</h1>
@@ -213,53 +136,7 @@ function crearFila(codigo, desc, marca, precio, cant, iva, subtotal, id){
                         </div>
 
                     </div>`;
-    }else{
-        return `
-        <div class="row row2" id="fila">
-
-                        <div class="col-md-1">
-                            <h1 class="tableTitle">`+ codigo +`</h1>
-                        </div>
-                        <div class="col-md-2">
-                            <h1 class="tableTitle">`+ desc +`</h1>
-                        </div>
-                        <div class="col-md-2">
-                            <h1 class="tableTitle">`+ marca +`</h1>
-                        </div>
-                        <div class="col-md-1">
-                            <h1 class="tableTitle">`+ precio +`</h1>
-                        </div>
-                        <div class="col-md-2">
-                            <h1 class="tableTitle">`+ cant +`</h1>
-                        </div>
-                        <div class="col-md-1">
-                            <h1 class="tableTitle">`+ iva +`</h1>
-                        </div>
-                        <div class="col-md-1">
-                            <h1 class="tableTitle">`+ subtotal +`</h1>
-                        </div>
-                      
-                        <div class="col-md-1">
-                        <h1 class="tableTitle">
-                            <button id="elimBtn" class="opcionBtn" onclick="eliminarFila(`+ id +`)">
-                                X
-                            </button>
-                        </h1>
-                    </div>
-                    <div class="col-md-1">
-                        <h1 class="tableTitle">
-                            <button id="editBtn" class="opcionBtn" onclick="editarFila(`+ id +`)"
-                                style="margin-left:5%">
-                                ✏️
-                            </button>
-                        </h1>
-                    </div>
-                       
-
-                    </div>`;
     }
-    
-}
 
 function eliminarFila(id) {
     let productos = JSON.parse(localStorage.getItem("productos"));
@@ -269,101 +146,36 @@ function eliminarFila(id) {
 }
 
 function editarFila(id) {
-    let formu = document.getElementById("formulario");
-    formu.innerHTML = formEdit(id);
-
-    
-}
-
-
-function formEdit(id){
     let productos =JSON.parse(localStorage.getItem("productos"));
     let producto = productos[id];
-    console.log(producto);
-    
-    return `<div class="row">
-    <div class="col-md-3"> </div>
-    <div class="col-md-6 container-edit">
-        <div class="row">
-            <h1 class="title">Editar Producto</h1>
-        </div>
-        <form class="formulario">
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="codigo">Codigo:</label>
-                </div>
-                <div class="col-md-6 inputText">
-                    <input type="text" name="code" id="code" value="`+ producto.codigo +`"
-                        class="form-control" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="desc">Descripcion:</label>
-                </div>
-                <div class="col-md-6 inputText">
-                    <input type="text" name="desc" id="desc" value="`+ producto.desc +`"
-                        class="form-control" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="marca">Marca:</label>
-                </div>
-                <div class="col-md-6 inputText">
-                    <input type="text" name="marca" id="marca" value="`+ producto.marca +`"
-                        class="form-control" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="precio">Precio:</label>
-                </div>
-                <div class="col-md-6 inputText">
-                    <input type="number" name="precio" id="precio" value="`+ producto.precio +`"
-                        class="form-control" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="cant">Cantidad:</label>
-                </div>
-                <div class="col-md-6 inputText">
-                    <input type="number" name="cant" id="cant" value="`+ producto.cant +`"
-                        class="form-control" />
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2">
-                    <label for="desc">IVA:</label>
-                </div>
-                <div class="col-md-6 inputText">
-                    <select name="iva" id="iva" class="form-control" value="`+ producto.iva +`">
-                        <option value="10">10%</option>
-                        <option value="21">21%</option>
-                    </select>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-2"></div>
-                <div class="col-md-6">
-                    <input type="button" value="Guardar" class="btn btn-success"
-                        onclick="actualizarProducto(`+ id +`)">
-                </div>
-            </div>
 
-        </form>
+    document.getElementById("formul").classList.remove("container-inicio");
+    document.getElementById("formul").classList.add("container-edit");
 
-    </div>
+    document.getElementById("code").value = producto.codigo;
+    document.getElementById("desc").value = producto.desc;
+    document.getElementById("marca").value = producto.marca;
+    document.getElementById("precio").value = producto.precio;
+    document.getElementById("cant").value = producto.cant;
+    document.getElementById("iva").value = producto.iva;
 
-
-    <div class="col-md-2"></div>
-</div>`;
+    document.getElementById("bot").value = "Guardar";
+    document.getElementById("bot").setAttribute('onclick',  'actualizarProducto('+ id +');');    
 }
 
 function mostrarForm(){
-    let formu = document.getElementById("formulario");
-    formu.innerHTML = ingreso;
+    document.getElementById("formul").classList.add("container-inicio");
+    document.getElementById("formul").classList.remove("container-edit");
+
+    document.getElementById("code").value = "";
+    document.getElementById("desc").value = "";
+    document.getElementById("marca").value = "";
+    document.getElementById("precio").value = "";
+    document.getElementById("cant").value = "";
+    document.getElementById("iva").value;
+
+    document.getElementById("bot").value = "Registar producto";
+    document.getElementById("bot").setAttribute('onclick',  'guardarProducto()');
 }
 
 function actualizarProducto(id){

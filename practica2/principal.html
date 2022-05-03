@@ -11,18 +11,18 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="mostrarTabla(); mostrarForm()">
+<body onload="mostrarTabla()">
     <div class="container-fluid " id="formulario">
-        <!-- <div class="row">
+        <div class="row">
             <div class="col-md-3"> </div>
-            <div class="col-md-6 container-edit">
+            <div class="col-md-6 container-inicio" id="formul">
                 <div class="row">
-                    <h1 class="title">Editar Producto</h1>
+                    <h1 class="title">Ingreso de Productos</h1>
                 </div>
                 <form class="formulario">
                     <div class="row">
                         <div class="col-md-2">
-                            <label for="codigo">Codigo:</label>
+                            <label for="code">Codigo:</label>
                         </div>
                         <div class="col-md-6 inputText">
                             <input type="text" name="code" id="code" placeholder="Ingrese el Codigo"
@@ -79,18 +79,18 @@
                     <div class="row">
                         <div class="col-md-2"></div>
                         <div class="col-md-6">
-                            <input type="button" value="Registrar Producto" class="btn btn-success"
+                            <input type="button" value="Registrar Producto" class="btn btn-success" id="bot"
                                 onclick="guardarProducto()">
                         </div>
                     </div>
-
+            
                 </form>
-
+            
             </div>
-
-
+            
+            
             <div class="col-md-2"></div>
-        </div> -->
+            </div>
     </div>
     <div class="container-fluid" >
         <div class="row">
